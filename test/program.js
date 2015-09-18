@@ -38,10 +38,10 @@ test('can roll a POOL of the same dice', assert => {
     let die2 = justdie.die(sides);
     let die3 = justdie.die(sides);
 
-    /** Create pool */
-    let dice_pool = justdie.roll_pool(die1, die2, die3);
+    /** Roll pool */
+    let dice_pool_roll = justdie.roll(die1, die2, die3);
 
     /** Check that a roll of them returns true */
-    assert.equal(typeof dice_pool(), 'number', 'a roll with three ' + sides + ' sided dices returns a number');
+    assert.equal(typeof dice_pool_roll, 'number', 'a roll with three ' + sides + ' sided dices returns a number');
   });
 });
