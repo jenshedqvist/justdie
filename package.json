@@ -1,0 +1,31 @@
+{
+  "name": "justdie",
+  "version": "1.0.0",
+  "description": "Just a die roller library written in ES6 ES2015",
+  "main": "index.js",
+  "dependencies": {
+    "babel": "^5.8.23"
+  },
+  "devDependencies": {
+    "babelify": "^6.3.0"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/jenshedqvist/justdie.git"
+  },
+  "keywords": [
+    "dice",
+    "die",
+    "gaming",
+    "roll"
+  ],
+  "author": "Jens Hedqvist <jens.hedqvist@gmail.com>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/jenshedqvist/justdie/issues"
+  },
+  "homepage": "https://github.com/jenshedqvist/justdie"
+}
