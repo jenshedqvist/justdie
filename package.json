@@ -2,15 +2,34 @@
   "name": "justdie",
   "version": "1.0.0",
   "description": "Just a die roller library written in ES6 ES2015",
+  "author": "Jens Hedqvist <jens.hedqvist@gmail.com>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/jenshedqvist/justdie/issues"
+  },
+  "homepage": "https://github.com/jenshedqvist/justdie",
   "main": "index.js",
+  "scripts": {
+    "postinstall": "npm run build && npm run minify",
+    "test": "browserify test/program.js | tape-run",
+    "build": "babel lib/justdie.js -o index.js --source-maps --stage 0 --modules umdStrict",
+    "minify": "uglifyjs index.js -o index.min.js",
+    "posttest": "npm run lint",
+    "lint": "eslint ./"
+  },
   "dependencies": {
     "babel": "^5.8.23"
   },
   "devDependencies": {
-    "babelify": "^6.3.0"
-  },
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "babel-eslint": "^4.0.7",
+    "babelify": "^6.2.0",
+    "brfs": "^1.4.1",
+    "browserify": "^11.0.1",
+    "eslint": "^1.0.0",
+    "serve": "^1.4.0",
+    "tape": "^4.0.1",
+    "tape-run": "^1.1.0",
+    "uglify-js": "^2.4.24"
   },
   "repository": {
     "type": "git",
@@ -22,10 +41,15 @@
     "gaming",
     "roll"
   ],
-  "author": "Jens Hedqvist <jens.hedqvist@gmail.com>",
-  "license": "MIT",
-  "bugs": {
-    "url": "https://github.com/jenshedqvist/justdie/issues"
-  },
-  "homepage": "https://github.com/jenshedqvist/justdie"
+  "browserify": {
+    "transform": [
+      [
+        "babelify",
+        {
+          "stage": 0
+        }
+      ],
+      "brfs"
+    ]
+  }
 }
