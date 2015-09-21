@@ -3,14 +3,14 @@ import test from 'tape';
 import * as lib from './../lib/justdie';
 
 /** Constants */
-const common_dice = [1, 4, 6, 8, 10, 12, 20, 100];
+const common_dice = [4, 6, 8, 10, 12, 20, 100];
 
 /**
  * Tests
  * Note: all tests written in SIMPLE code, complex code has no place in tests.
  */
 
-test('can create any common dice', assert => {
+test('can CREATE any common dice', assert => {
   assert.plan(common_dice.length);
 
   common_dice.forEach(sides => {
@@ -19,12 +19,13 @@ test('can create any common dice', assert => {
   });
 });
 
-test('can roll any SINGLE common dice', assert => {
-  assert.plan(common_dice.length);
+test('can ROLL any SINGLE common dice (with and w/o explicit roll)', assert => {
+  assert.plan(common_dice.length * 2);
 
   common_dice.forEach(sides => {
     let die = lib.die(sides);
-    assert.equal(typeof die(), 'number', 'a roll of common die ' + sides + ' returns number');
+    assert.equal(typeof lib.roll(die), 'number', 'a roll of common die ' + sides + ' returns number');
+    assert.equal(typeof die(), 'number', 'a bare roll die-fn also returns number');
   });
 });
 
