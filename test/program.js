@@ -63,3 +63,16 @@ test('can roll a mixed POOL of dice', assert => {
     assert.equal(typeof roll, 'number', 'a mixed dice pool roll returns a number');
   });
 });
+
+test('can ROLL any SINGLE common dice VERBOSE', assert => {
+  assert.plan(common_dice.length * 4);
+
+  common_dice.forEach(sides => {
+    let die = lib.die(sides);
+    let verbose_roll = lib.roll_verbose(die);
+    assert.equal(typeof verbose_roll, 'object', 'a roll of common die '+ sides +' returns info object...');
+    assert.equal(typeof verbose_roll.result, 'number', '... "result" contains result of roll as number');
+    assert.equal((Array.isArray(verbose_roll.minmax) && verbose_roll.minmax.length === 2), true, '... "minmax" contains min/max value as array');
+    assert.equal(typeof verbose_roll.sides, 'number', '... "sides" contains number of sides as number');
+  });
+});
