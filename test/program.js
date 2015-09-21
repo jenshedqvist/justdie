@@ -15,7 +15,7 @@ test('can CREATE any common dice', assert => {
 
   common_dice.forEach(sides => {
     let die_type = typeof lib.die(sides);
-    assert.equal(die_type, 'function', 'a ' + sides + ' sided die is a function');
+    assert.equal(die_type, 'function', `a ${sides} sided die is a function`);
   });
 });
 
@@ -24,7 +24,7 @@ test('can ROLL any SINGLE common dice (with and w/o explicit roll)', assert => {
 
   common_dice.forEach(sides => {
     let die = lib.die(sides);
-    assert.equal(typeof lib.roll(die), 'number', 'a roll of common die ' + sides + ' returns number');
+    assert.equal(typeof lib.roll(die), 'number', `a roll of common die ${sides} returns number`);
     assert.equal(typeof die(), 'number', 'a bare roll die-fn also returns number');
   });
 });
@@ -43,7 +43,7 @@ test('can roll a POOL of the same dice', assert => {
     let dice_pool_roll = lib.roll(die1, die2, die3);
 
     /** Check that a roll of them returns true */
-    assert.equal(typeof dice_pool_roll, 'number', 'a roll with three ' + sides + ' sided dices returns a number');
+    assert.equal(typeof dice_pool_roll, 'number', `a roll with three ${sides} sided dices returns a number`);
   });
 });
 
@@ -70,9 +70,9 @@ test('can ROLL any SINGLE common dice VERBOSE', assert => {
   common_dice.forEach(sides => {
     let die = lib.die(sides);
     let verbose_roll = lib.roll_verbose(die);
-    assert.equal(typeof verbose_roll, 'object', 'a roll of common die '+ sides +' returns info object...');
-    assert.equal(typeof verbose_roll.result, 'number', '... "result" contains result of roll as number');
-    assert.equal((Array.isArray(verbose_roll.minmax) && verbose_roll.minmax.length === 2), true, '... "minmax" contains min/max value as array');
-    assert.equal(typeof verbose_roll.sides, 'number', '... "sides" contains number of sides as number');
+    assert.equal(typeof verbose_roll, 'object', `a roll of common die ${sides} returns info object...`);
+    assert.equal(typeof verbose_roll.result, 'number', `... "result" contains result of roll as number (${verbose_roll.result})`);
+    assert.equal((Array.isArray(verbose_roll.minmax) && verbose_roll.minmax.length === 2), true, `... "minmax" contains min/max value as array (${verbose_roll.minmax.join(', ')})`);
+    assert.equal(typeof verbose_roll.sides, 'number', `... "sides" contains number of sides as number (${verbose_roll.sides})`);
   });
 });
