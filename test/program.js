@@ -45,3 +45,20 @@ test('can roll a POOL of the same dice', assert => {
     assert.equal(typeof dice_pool_roll, 'number', 'a roll with three ' + sides + ' sided dices returns a number');
   });
 });
+
+test('can roll a mixed POOL of dice', assert => {
+  assert.plan(4);
+
+  /** Roll 4 pools of semi-random dices */
+  let rolls = [
+    lib.roll(lib.die(common_dice[0]), lib.die(common_dice[2]), lib.die(common_dice[3])),
+    lib.roll(lib.die(common_dice[6]), lib.die(common_dice[1]), lib.die(common_dice[0])),
+    lib.roll(lib.die(common_dice[4]), lib.die(common_dice[4]), lib.die(common_dice[7])),
+    lib.roll(lib.die(common_dice[5]), lib.die(common_dice[6]), lib.die(common_dice[1]))
+  ];
+
+  rolls.forEach(roll => {
+    /** Check that a roll of them returns true */
+    assert.equal(typeof roll, 'number', 'a mixed dice pool roll returns a number');
+  });
+});
