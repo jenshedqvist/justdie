@@ -42,7 +42,6 @@ test('can roll a POOL of the same dice', assert => {
     /** Roll pool */
     let dice_pool_roll = lib.roll(die1, die2, die3);
 
-    /** Check that a roll of them returns true */
     assert.equal(typeof dice_pool_roll, 'number', `a roll with three ${sides} sided dices returns a number`);
   });
 });
@@ -59,7 +58,6 @@ test('can roll a mixed POOL of dice', assert => {
   ];
 
   rolls.forEach(roll => {
-    /** Check that a roll of them returns true */
     assert.equal(typeof roll, 'number', 'a mixed dice pool roll returns a number');
   });
 });
@@ -72,7 +70,9 @@ test('can ROLL any SINGLE common dice VERBOSE', assert => {
     let verbose_roll = lib.roll_verbose(die);
     assert.equal(typeof verbose_roll, 'object', `a roll of common die ${sides} returns info object...`);
     assert.equal(typeof verbose_roll.result, 'number', `... "result" contains result of roll as number (${verbose_roll.result})`);
-    assert.equal((Array.isArray(verbose_roll.minmax) && verbose_roll.minmax.length === 2), true, `... "minmax" contains min/max value as array (${verbose_roll.minmax.join(', ')})`);
+    assert.equal(
+      (Array.isArray(verbose_roll.minmax) && verbose_roll.minmax.length === 2), true,
+      `... "minmax" contains min/max value as array (${verbose_roll.minmax.join(', ')})`);
     assert.equal(typeof verbose_roll.sides, 'number', `... "sides" contains number of sides as number (${verbose_roll.sides})`);
   });
 });
