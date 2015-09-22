@@ -2,6 +2,11 @@
 > Just a die roller library written in ES6 ES2015, use for whatever obscure purpose.
 
 ## Installation
+
+```bash
+npm install --save justdie
+```
+
 To use directly in the browser:
 
 ```html
@@ -15,7 +20,18 @@ or the minified version:
 ```
 
 ## Build
-Coming soon...
+On install a Node compliant `index.js` will be created automatically:
+
+```bash
+npm install
+```
+
+but you can run it manually as well to create a `index.js`:
+
+```bash
+npm run build
+```
+
 
 ## Documentation
 Coming soon...
@@ -35,3 +51,6 @@ Coming soon...
 
 - (**`?`**) But couldn't all this be achieved using a random_num util?
 - (**`!`**) You are correct, it could! And you are boring. Please stop talking.
+
+## License
+MIT
