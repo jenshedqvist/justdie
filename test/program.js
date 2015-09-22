@@ -30,9 +30,9 @@ test('can ROLL any SINGLE common dice (with and w/o explicit roll)', assert => {
 });
 
 test('can roll a POOL of the same dice', assert => {
-  assert.plan(common_dice.length);
+  assert.plan(1);
 
-  common_dice.forEach(sides => {
+  let result = common_dice.map(sides => {
 
     /** Create 3 identical dices */
     let die1 = lib.die(sides);
@@ -40,16 +40,17 @@ test('can roll a POOL of the same dice', assert => {
     let die3 = lib.die(sides);
 
     /** Roll pool */
-    let dice_pool_roll = lib.roll(die1, die2, die3);
+    return lib.roll(die1, die2, die3);
 
-    assert.equal(typeof dice_pool_roll, 'number', `a roll with three ${sides} sided dices returns a number`);
   });
+  assert.equal(result.every(roll => typeof roll === 'number'), true, `a roll with three dices of any common sided dice returns a number`);
 });
 
-test('can roll a mixed POOL of dice', assert => {
-  assert.plan(4);
 
-  /** Roll 4 pools of semi-random dices */
+test('can roll a mixed POOL of dice', assert => {
+  assert.plan(1);
+
+  /** Roll 4 pools of mixed dices */
   let rolls = [
     lib.roll(lib.die(common_dice[0]), lib.die(common_dice[2]), lib.die(common_dice[3])),
     lib.roll(lib.die(common_dice[6]), lib.die(common_dice[1]), lib.die(common_dice[0])),
@@ -57,9 +58,7 @@ test('can roll a mixed POOL of dice', assert => {
     lib.roll(lib.die(common_dice[5]), lib.die(common_dice[6]), lib.die(common_dice[1]))
   ];
 
-  rolls.forEach(roll => {
-    assert.equal(typeof roll, 'number', 'a mixed dice pool roll returns a number');
-  });
+  assert.equal(rolls.every(roll => typeof roll === 'number'), true, 'a mixed dice pool roll returns a number');
 });
 
 test('can ROLL any SINGLE common dice VERBOSE', assert => {
