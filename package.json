@@ -1,6 +1,6 @@
 {
   "name": "justdie",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "Just a die roller library written in ES6 ES2015",
   "author": "Jens Hedqvist <jens.hedqvist@gmail.com>",
   "license": "MIT",
@@ -37,7 +37,9 @@
     "dice",
     "die",
     "gaming",
-    "roll"
+    "roll",
+    "es6",
+    "js"
   ],
   "browserify": {
     "transform": [

@@ -44,24 +44,24 @@ die6() // 1-6
 Or use the roll function
 ```javascript
 let die6 = die(6);
-roll(die6) // 1-6
+roll(die6); // 1-6
 ```
 
 The roll function can take a pool of dice:
 ```javascript
-roll(die(10), die(10), die(10)) // 3-30
+roll(die(10), die(10), die(10)); // 3-30
 ```
 
 and ofc mixed dice pools:
 ```javascript
-roll(die(8), die(12), die(4)) // 3-24
+roll(die(8), die(12), die(4)); // 3-24
 ```
 
 You can make more verbose rolls:
 ```javascript
 let d20 = die(20);
-verbose(d20) // { "result": 1-20, "minmax": [1, 20], "sides": 20 }
-roll_verbose(d20, d20, d20) // [{ "result": 1-20, "minmax": [1, 20], "sides": 20 }, ...]
+roll_verbose(d20); // { "result": 1-20, "minmax": [1, 20], "sides": 20 }
+roll_verbose(d20, d20, d20); // [{ "result": 1-20, "minmax": [1, 20], "sides": 20 }, ...]
 ```
 
 
