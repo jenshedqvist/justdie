@@ -1,5 +1,10 @@
 # Just Die
+
+![Just Die JS logo](https://raw.github.com/jenshedqvist/justdie/master/JustDie_Logo_128x128.png)
+
 > Just a die roller library written in ES6 ES2015, use for whatever obscure purpose.
+
+
 
 ## Installation
 
