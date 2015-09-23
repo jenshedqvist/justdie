@@ -40,6 +40,8 @@ npm run build
 
 ## Documentation
 
+### Single die
+
 Create a die and roll it:
 ```javascript
 let die6 = die(6);
@@ -52,6 +54,8 @@ let die6 = die(6);
 roll(die6); // 1-6
 ```
 
+### Dice pools
+
 The roll function can take a pool of dice:
 ```javascript
 roll(die(10), die(10), die(10)); // 3-30
@@ -62,6 +66,8 @@ and ofc mixed dice pools:
 roll(die(8), die(12), die(4)); // 3-24
 ```
 
+### Verbose rolls
+
 You can make more verbose rolls:
 ```javascript
 let d20 = die(20);
@@ -69,6 +75,16 @@ roll_verbose(d20); // { "result": 1-20, "minmax": [1, 20], "sides": 20 }
 roll_verbose(d20, d20, d20); // [{ "result": 1-20, "minmax": [1, 20], "sides": 20 }, ...]
 ```
 
+### Roll modifiers
+
+You can supply simple modifiers to any die
+```javascript
+roll(die(8, 2)); // 3-10
+roll(die(6, 4)); // 5-10
+roll(die(4, -2)); // 0-2
+roll(die(100, -43)); // 0-57
+```
+Note that when using negative modifiers we **allow zero** (0) as result.
 
 ## Running The Test Suite
 
